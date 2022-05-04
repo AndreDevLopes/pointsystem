@@ -1,0 +1,1 @@
+web gunicorn pointsytem.wsgi:apllication --log-file
