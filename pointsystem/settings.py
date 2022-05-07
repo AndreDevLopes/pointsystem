@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-# import django_heroku
-# import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,9 +32,9 @@ DEBUG = int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'powerful-springs-74030.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://powerful-springs-74030.herokuapp.com'
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://powerful-springs-74030.herokuapp.com'
+# ]
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'secretaria',
     'servidor',
-    'ponto'
+    'ponto',
+    'horario'
 
 ]
 
@@ -93,9 +93,9 @@ DATABASES = {
     }
 }
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
-db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
-DATABASES['default'].update(db_from_env)
+# DATABASE_URL = os.environ.get('DATABASE_URL')
+# db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+# DATABASES['default'].update(db_from_env)
 
 
 
