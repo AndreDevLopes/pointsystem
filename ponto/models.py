@@ -9,5 +9,5 @@ class Ponto(models.Model):
     intervalo = models.TimeField(blank=True, null=True)
     retorno = models.TimeField(blank=True, null=True)
     saida = models.TimeField(blank=True, null=True)
-    servidor = models.OneToOneField(Servidor, on_delete=models.CASCADE, default=None)
+    servidor = models.ForeignKey(Servidor, on_delete=models.CASCADE, default=None)
 

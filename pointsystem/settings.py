@@ -28,8 +28,8 @@ SECRET_KEY = 'django-insecure-p^d$khl!$#f3p%nisa!yh-gy&^4#-a1^wsgf!y)&8$=#qxv8a(
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
-DEBUG = int(os.environ.get('DEBUG', default=0))
-
+# DEBUG = int(os.environ.get('DEBUG', default=0))
+DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'powerful-springs-74030.herokuapp.com']
 
 # CSRF_TRUSTED_ORIGINS = [
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'secretaria',
     'servidor',
     'ponto',
-    'horario'
+    'import_export'
 
 ]
 
@@ -141,3 +141,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+IMPORT_EXPORT_USE_TRANSACTIONS = True

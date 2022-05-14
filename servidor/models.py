@@ -6,7 +6,7 @@ from secretaria.models import Secretaria
 # Create your models here.
 class Servidor(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    CPF = models.CharField(max_length=14, null=True)
+    CPF = models.CharField(max_length=14, null=True, blank=True)
     matricula = models.CharField(max_length=50)
     telefone = models.CharField(max_length=15)
     cargo = models.CharField(max_length=200)

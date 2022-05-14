@@ -1,16 +1,14 @@
 from django.contrib import admin
-from .models import Secretaria
+from .models import Secretaria, HorarioDia
 
 
 # Register your models here.
 @admin.register(Secretaria)
 class AdminSecretaria(admin.ModelAdmin):
-    list_display = ['nome', 'horario_da_secretaria', 'horario_do_intervalo_da_secretaria']
+    list_display = ['nome']
 
-    @admin.display(empty_value='???')
-    def horario_da_secretaria(self, obj):
-        return f'{obj.entrada} as {obj.saida}'
 
-    @admin.display(empty_value='???')
-    def horario_do_intervalo_da_secretaria(self, obj):
-        return f'{obj.intervalo} as {obj.retorno}'
+@admin.register(HorarioDia)
+class AdminHorarioDia(admin.ModelAdmin):
+    list_display = ['secretaria', 'dia', 'entrada', 'intervalo', 'retorno', 'saida']
+
