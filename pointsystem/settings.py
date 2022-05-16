@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'secretaria',
     'servidor',
     'ponto',
-    'import_export'
+    'import_export',
+    'rest_framework',
+    'knox',
 
 ]
 
@@ -63,6 +65,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pointsystem.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
 TEMPLATES = [
     {
