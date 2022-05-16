@@ -1,13 +1,12 @@
 from datetime import datetime
-
-from rest_framework.generics import ListCreateAPIView, UpdateAPIView
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Ponto
 from .serializers import PontoSerializer
 
 
-class CreatePontoAPI(ListCreateAPIView):
+class PontoAPI(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = PontoSerializer
 
