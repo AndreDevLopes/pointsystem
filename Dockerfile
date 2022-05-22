@@ -13,7 +13,8 @@ ENV DEBUG 0
 RUN apk update \
     && apk add --virtual build-essential gcc python3-dev musl-dev \
     && apk add postgresql-dev \
-    && pip install psycopg2
+    && apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
+    && pip install psycopg2 
 
 # install dependencies
 COPY ./requirements.txt .
