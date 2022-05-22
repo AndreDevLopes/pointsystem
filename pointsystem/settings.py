@@ -30,11 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 # DEBUG = int(os.environ.get('DEBUG', default=0))
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1' ,'powerful-springs-74030.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com']
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://powerful-springs-74030.herokuapp.com'
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://powerful-springs-74030.herokuapp.com'
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -101,9 +101,9 @@ DATABASES = {
     }
 }
 
-# DATABASE_URL = os.environ.get('DATABASE_URL')
-# db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
-# DATABASES['default'].update(db_from_env)
+DATABASE_URL = os.environ.get('DATABASE_URL')
+db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 
 
