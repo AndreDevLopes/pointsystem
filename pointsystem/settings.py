@@ -30,10 +30,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
 # DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com', '187.19.234.64', '192.168.1.15']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://powerful-springs-74030.herokuapp.com'
+    'https://powerful-springs-74030.herokuapp.com',
+    'http://187.19.234.64',
+    'http://192.168.1.15/'
 ]
 # Application definition
 
