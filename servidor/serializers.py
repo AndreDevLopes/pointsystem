@@ -4,6 +4,7 @@ from rest_framework import serializers
 from .models import Servidor
 from secretaria.models import Secretaria, HorarioDia
 from ponto.models import Ponto
+from django.contrib.auth.models import User
 
 
 class secretariaSerializer(serializers.ModelSerializer):
@@ -63,7 +64,7 @@ class horasTrabalhadasSerializer(serializers.ModelSerializer):
         if obj.intervalo is not None:
             valor_intervalo = obj.intervalo
         if obj.retorno is not None:
-            valor_retorno= obj.retorno
+            valor_retorno = obj.retorno
         if obj.saida is not None:
             valor_saida = obj.saida
 
@@ -81,3 +82,23 @@ class horasTrabalhadasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ponto
         fields = ('dia', 'horas_trabalhadas',)
+
+
+class usuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'is_active', 'is_staff', 'email', 'is_superuser', 'last_login')
+
+
+class servidorSerializer(serializers.ModelSerializer):
+    id = serializers.CharField(read_only=True)
+    usuario = usuarioSerializer()
+    vinculo = serializers.CharField(read_only=True)
+    setor = serializers.CharField(read_only=True)
+    telefone = serializers.CharField(read_only=True)
+    cargo = serializers.CharField(read_only=True)
+    secretaria = secretariaSerializer()
+
+    class Meta:
+        model = Servidor
+        fields = '__all__'
