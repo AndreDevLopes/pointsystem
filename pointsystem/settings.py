@@ -29,13 +29,37 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
-# DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com', '192.168.0.10', '192.168.1.15']
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com']
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',  # for localhost (REACT Default)
+    'http://127.0.0.1:3000',  # for network
+    'http://localhost:8080',  # for localhost (Developlemt)
+    'http://127.0.0.1:8080',  # for network (Development)
+    'https://powerful-springs-74030.herokuapp.com'
+)
 
 CSRF_TRUSTED_ORIGINS = [
     'https://powerful-springs-74030.herokuapp.com',
-    'http://192.168.0.10',
-    'http://192.168.1.15/'
+    'http://localhost:3000',  # for localhost (REACT Default)
+    'http://127.0.0.1:3000',  # for network
+    'http://localhost:8080',  # for localhost (Developlemt)
+    'http://127.0.0.1:8080'
+]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
 ]
 # Application definition
 
@@ -46,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'secretaria',
     'servidor',
     'ponto',
@@ -59,6 +84,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
