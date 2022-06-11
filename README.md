@@ -5,6 +5,7 @@
     /login/
     /ponto/
     /ponto/update/id/
+    /servidor/
     /servidor/horario/
     /servidor/horas/trabalhadas/
 
@@ -118,6 +119,84 @@
     data:{
 	    "message": "Point updated successfully"
     }
+
+### Exemplo de uso servidor
+
+<b>
+    Endpoint deve retornar os dados do servidor 
+</b>
+
+
+    request GET baseUrl/servidor/
+
+    header:{
+        "Content-Type":"application/json",
+        "Authorization":"token f69eacd59d010b8de87e6461ca418d69446598e41eeee602419dd9183ffe9f75"
+    }
+
+    response status 200 
+
+    data:[
+            {
+            "id": "1",
+            "usuario": {
+                "username": "041035-3",
+                "first_name": "Andre",
+                "last_name": "",
+                "is_active": true,
+                "is_staff": true,
+                "email": "andrelopessfla@gmail.com",
+                "is_superuser": true,
+                "last_login": "2022-06-11T14:55:41.750866Z"
+            },
+            "vinculo": "CONC",
+            "setor": "ADMINISTRATIVO.FUNDAMENTAL",
+            "telefone": "(88) 9289-0132",
+            "cargo": "Professor",
+            "secretaria": {
+                "id": "1",
+                "nome": "SECRETARIA DE EDUCAÇÃO",
+                "horarios": [
+                    {
+                        "dia": "SEG",
+                        "entrada": "07:00:00",
+                        "intervalo": "12:00:00",
+                        "retorno": "13:00:00",
+                        "saida": "17:00:00"
+                    },
+                    {
+                        "dia": "TER",
+                        "entrada": "07:00:00",
+                        "intervalo": "12:00:00",
+                        "retorno": "13:00:00",
+                        "saida": "17:00:00"
+                    },
+                    {
+                        "dia": "QUA",
+                        "entrada": "07:00:00",
+                        "intervalo": "12:00:00",
+                        "retorno": "13:00:00",
+                        "saida": "17:00:00"
+                    },
+                    {
+                        "dia": "QUI",
+                        "entrada": "07:00:00",
+                        "intervalo": "12:00:00",
+                        "retorno": "13:00:00",
+                        "saida": "17:00:00"
+                    },
+                    {
+                        "dia": "SEX",
+                        "entrada": "07:00:00",
+                        "intervalo": "12:00:00",
+                        "retorno": "13:00:00",
+                        "saida": "17:00:00"
+                    }
+                ]
+            }
+        }
+    ]
+
 
 ### Exemplo de uso servidor/horario
 
