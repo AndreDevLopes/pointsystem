@@ -28,7 +28,7 @@ class Servidor(models.Model):
 
 
 def user_directory_path(instance, filename):
-    return 'user_{0}/{1}'.format(instance.usuario.id, filename)
+    return 'user_{0}/{1}'.format(instance.servidor.usuario.id, filename)
 
 
 class Justificativa(models.Model):
@@ -41,6 +41,6 @@ class Justificativa(models.Model):
     data_inicio = models.DateField()
     data_final = models.DateField()
     descricao = models.TextField()
-    upload = models.FileField(upload_to=user_directory_path, null=True, blank=True)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    arquivo = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+    servidor = models.ForeignKey(Servidor, on_delete=models.CASCADE)
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='PEN')

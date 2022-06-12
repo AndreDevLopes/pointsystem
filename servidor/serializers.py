@@ -1,7 +1,7 @@
 from datetime import time
 
 from rest_framework import serializers
-from .models import Servidor
+from .models import Servidor, Justificativa
 from secretaria.models import Secretaria, HorarioDia
 from ponto.models import Ponto
 from django.contrib.auth.models import User
@@ -102,3 +102,25 @@ class servidorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servidor
         fields = '__all__'
+
+
+class JustificativaSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    tipo = serializers.CharField(max_length=100)
+    data_inicio = serializers.DateField()
+    data_final = serializers.DateField()
+    descricao = serializers.CharField()
+    servidor = serializers.CharField()
+    arquivo = serializers.FileField()
+    # status = serializers.CharField(allow_null=True)
+
+    class Meta:
+        model = Justificativa
+        fields = '__all__'
+
+    def create(self, validated_data):
+        matricula = validated_data['servidor']
+        get_servidor = Servidor.objects.get(usuario__username=matricula)
+        validated_data['servidor'] = get_servidor
+        justificativa = Justificativa.objects.create(**validated_data)
+        return justificativa

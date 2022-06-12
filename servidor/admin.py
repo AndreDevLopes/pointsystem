@@ -19,11 +19,11 @@ class AdminServidor(admin.ModelAdmin):
 
 @admin.register(Justificativa)
 class AdminJustificativa(admin.ModelAdmin):
-    list_display = ['nome_servidor', 'matricula', 'tipo', 'data', 'descricao', 'upload']
+    list_display = ['nome_servidor', 'matricula', 'tipo', 'data', 'descricao', 'arquivo']
 
     @admin.display(empty_value='???')
     def nome_servidor(self, obj):
-        return obj.usuario.first_name
+        return obj.servidor.usuario.first_name
 
     @admin.display(empty_value='???')
     def data(self, obj):
@@ -31,4 +31,4 @@ class AdminJustificativa(admin.ModelAdmin):
 
     @admin.display(empty_value='???')
     def matricula(self, obj):
-        return obj.usuario.username
+        return obj.servidor.usuario.username

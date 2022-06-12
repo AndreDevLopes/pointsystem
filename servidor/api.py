@@ -1,8 +1,9 @@
 from datetime import datetime
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
-from .serializers import servidorHorarioSerializer, horasTrabalhadasSerializer,servidorSerializer
-from .models import Servidor
+from .serializers import servidorHorarioSerializer, horasTrabalhadasSerializer, servidorSerializer,\
+    JustificativaSerializer
+from .models import Servidor, Justificativa
 from ponto.models import Ponto
 
 
@@ -31,3 +32,12 @@ class ServidorAPI(ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return Servidor.objects.filter(usuario__username=user)
+
+
+class JustificativaAPI(ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = JustificativaSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Justificativa.objects.filter(servidor__usuario__username=user)
