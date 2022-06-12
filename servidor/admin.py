@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Servidor
+from .models import Servidor, Justificativa
 
 
 # Register your models here.
@@ -14,3 +14,21 @@ class AdminServidor(admin.ModelAdmin):
     @admin.display(empty_value='???')
     def nome_do_servidor(self, obj):
         return obj.usuario.first_name
+
+
+
+@admin.register(Justificativa)
+class AdminJustificativa(admin.ModelAdmin):
+    list_display = ['nome_servidor', 'matricula', 'tipo', 'data', 'descricao', 'upload']
+
+    @admin.display(empty_value='???')
+    def nome_servidor(self, obj):
+        return obj.usuario.first_name
+
+    @admin.display(empty_value='???')
+    def data(self, obj):
+        return f'{obj.data_inicio} até {obj.data_final}'
+
+    @admin.display(empty_value='???')
+    def matricula(self, obj):
+        return obj.usuario.username
