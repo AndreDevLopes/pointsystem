@@ -1,5 +1,6 @@
+import pytz
+from datetime import datetime
 from rest_framework import serializers
-
 from .models import Ponto
 from servidor.models import Servidor
 
@@ -20,9 +21,14 @@ class PontoSerializer(serializers.Serializer):
     def create(self, validated_data):
         matricula = validated_data['servidor']
         get_servidor = Servidor.objects.get(usuario__username=matricula)
-        validated_data['servidor'] = get_servidor
-        ponto = Ponto.objects.create(**validated_data)
-        return ponto
+        UTC = pytz.timezone('america/sao_paulo')
+        dia = datetime.now(UTC).date()
+        try:
+            return Ponto.objects.get(servidor=get_servidor, dia=dia)
+        except Ponto.DoesNotExist:
+            validated_data['servidor'] = get_servidor
+            ponto = Ponto.objects.create(**validated_data)
+            return ponto
 
     def update(self, instance, validated_data):
         if validated_data['entrada'] is not None:
