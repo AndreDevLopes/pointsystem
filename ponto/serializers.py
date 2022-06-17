@@ -31,13 +31,13 @@ class PontoSerializer(serializers.Serializer):
             return ponto
 
     def update(self, instance, validated_data):
-        if validated_data['entrada'] is not None:
+        if validated_data.__contains__('entrada'):
             instance.entrada = validated_data['entrada']
-        if validated_data['intervalo'] is not None:
+        if validated_data.__contains__('intervalo'):
             instance.intervalo = validated_data['intervalo']
-        if validated_data['retorno'] is not None:
+        if validated_data.__contains__('retorno'):
             instance.retorno = validated_data['retorno']
-        if validated_data['saida'] is not None:
+        if validated_data.__contains__('saida'):
             instance.saida = validated_data['saida']
         instance.save()
         return instance

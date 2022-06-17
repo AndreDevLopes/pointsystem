@@ -17,6 +17,7 @@ class PontoAPI(ListCreateAPIView):
 
 
 class UpdatePontoAPIView(UpdateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ponto.objects.all()
     serializer_class = PontoSerializer
     lookup_field = 'pk'
