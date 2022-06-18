@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import pytz
 from rest_framework.generics import ListCreateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -13,10 +15,12 @@ class PontoAPI(ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Ponto.objects.filter(servidor__usuario__username=user, dia=datetime.now())
+        UTC = pytz.timezone('america/sao_paulo')
+        return Ponto.objects.filter(servidor__usuario__username=user, dia=datetime.now(UTC))
 
 
 class UpdatePontoAPIView(UpdateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ponto.objects.all()
     serializer_class = PontoSerializer
     lookup_field = 'pk'

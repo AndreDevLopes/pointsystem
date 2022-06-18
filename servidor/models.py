@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from secretaria.models import Secretaria
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -41,6 +42,6 @@ class Justificativa(models.Model):
     data_inicio = models.DateField()
     data_final = models.DateField()
     descricao = models.TextField()
-    arquivo = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+    arquivo = CloudinaryField('imagem')
     servidor = models.ForeignKey(Servidor, on_delete=models.CASCADE)
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='PEN')

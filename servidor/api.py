@@ -1,4 +1,6 @@
 from datetime import datetime
+
+import pytz
 from rest_framework.generics import ListAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from .serializers import servidorHorarioSerializer, horasTrabalhadasSerializer, servidorSerializer,\
@@ -22,7 +24,8 @@ class HorasTrabalhadaAPI(ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Ponto.objects.filter(servidor__usuario__username=user, dia=datetime.now())
+        UTC = pytz.timezone('america/sao_paulo')
+        return Ponto.objects.filter(servidor__usuario__username=user, dia=datetime.now(UTC))
 
 
 class ServidorAPI(ListAPIView):
