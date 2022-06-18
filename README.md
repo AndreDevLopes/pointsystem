@@ -8,6 +8,7 @@
     /servidor/
     /servidor/horario/
     /servidor/horas/trabalhadas/
+    /servidor/justificativa/
 
 ### Exemplo de uso login
 
@@ -41,7 +42,8 @@
 <b> 
     O metodo GET deve retornar o ponto do dia, o POST deve ser usado
     para registrar um ponto um, o PUT deve ser usado para atualizar o ponto
-    ao longo do dia.
+    ao longo do dia, o PTCH e uma alternativa para atualizar so uma das
+    informações do ponto.
 </b>
 
     request GET baseUrl/ponto/
@@ -106,12 +108,27 @@
     }
 
     body:{
-        "dia": "2022-05-28",
         "entrada": "07:00:00",
         "intervalo": null,
         "retorno": null,
         "saida": null,
-        "servidor":"000000-0"
+    }
+
+    response status 201 
+
+    data:{
+	    "message": "Point updated successfully"
+    }
+
+    request PTCH baseUrl/ponto/update/<int:id>/
+
+    header:{
+        "Content-Type":"application/json",
+        "Authorization":"token f69eacd59d010b8de87e6461ca418d69446598e41eeee602419dd9183ffe9f75"
+    }
+
+    body:{
+        "entrada": "07:00:00",
     }
 
     response status 201 
@@ -283,6 +300,37 @@
         }
     ]
 
+### Exemplo de uso servidor/justificativa/
+<b>
+    Endpoint deve cadatrar a justificativa de falta do funcionario 
+</b>
 
+    request POST baseUrl/servidor/justificativa/
 
+    header:{
+        'Content-Type': 'multipart/form-data'
+        "Authorization":"token f69eacd59d010b8de87e6461ca418d69446598e41eeee602419dd9183ffe9f75"
+    }
+    
+    body:{
+        tipo: "Doente",
+        data_inicio:"2022-06-12",
+        data_final:"2022-06-20",
+        descricao:"estou doente",
+        servidor:"041035-5",
+        arquivo: atestado.jpg
+    }
+
+    response status 201
+
+       {
+        "id": 3,
+        "tipo": "Doente",
+        "data_inicio": "2022-06-12",
+        "data_final": "2022-06-22",
+        "descricao": "teste2",
+        "servidor": "zé do teste",
+        "arquivo": "http://res.cloudinary.com/dicmteqcv/image/upload/v1655516216/nt3dkflvhwjtqurxo5rm.jpg",
+        "status": "PEN"
+     }
 
