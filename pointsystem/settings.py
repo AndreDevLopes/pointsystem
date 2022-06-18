@@ -9,13 +9,15 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from datetime import timedelta, datetime
 from pathlib import Path
 import os
 import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import pytz
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -77,6 +79,7 @@ INSTALLED_APPS = [
     'import_export',
     'rest_framework',
     'knox',
+    'cloudinary'
 
 ]
 
@@ -98,6 +101,16 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'knox.auth.TokenAuthentication',
     ]
+}
+
+REST_KNOX = {
+   'TOKEN_TTL': timedelta(hours=0.05),
+}
+
+CLOUDINARY = {
+    'cloud_name': os.environ.get('cloud_name'),
+    'api_key': os.environ.get('api_key'),
+    'api_secret': os.environ.get('api_secret')
 }
 
 TEMPLATES = [
@@ -159,7 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
