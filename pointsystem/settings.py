@@ -79,8 +79,7 @@ INSTALLED_APPS = [
     'import_export',
     'rest_framework',
     'knox',
-    'cloudinary'
-
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
