@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Secretaria, HorarioDia
+from .models import Secretaria, HorarioDia, MacPermitido
 
 
 # Register your models here.
@@ -11,4 +11,10 @@ class AdminSecretaria(admin.ModelAdmin):
 @admin.register(HorarioDia)
 class AdminHorarioDia(admin.ModelAdmin):
     list_display = ['secretaria', 'dia', 'entrada', 'intervalo', 'retorno', 'saida']
+
+
+@admin.register(MacPermitido)
+class AdminMacPermitido(admin.ModelAdmin):
+    list_display = ['mac', 'modelo', 'secretaria', 'is_active']
+    list_filter = ('modelo', 'secretaria')
 
