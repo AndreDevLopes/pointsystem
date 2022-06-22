@@ -28,13 +28,3 @@ class HorarioDia(models.Model):
 
     def __str__(self):
         return self.dia
-
-
-class MacPermitido(models.Model):
-    mac = models.CharField(max_length=100)
-    modelo = models.CharField(max_length=100)
-    is_active = models.BooleanField(default=True)
-    secretaria = models.ForeignKey(Secretaria, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.mac
