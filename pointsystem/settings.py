@@ -103,7 +103,7 @@ REST_FRAMEWORK = {
 }
 
 REST_KNOX = {
-   'TOKEN_TTL': timedelta(hours=0.05),
+   'TOKEN_TTL': timedelta(hours=1),
 }
 
 CLOUDINARY = {
