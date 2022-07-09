@@ -45,6 +45,10 @@
     ao longo do dia, o PTCH e uma alternativa para atualizar so uma das
     informações do ponto.
 </b>
+<b> 
+   No metodo GET pode ser acresentado o query params ? data_inicial = data & data_final = data
+   a api vai retorna todos ponto do usuario nesse intervalo de datas
+</b>
 
     request GET baseUrl/ponto/
 
@@ -67,7 +71,144 @@
         }
     ]
     
+    request GET baseUrl/ponto/?data_inicial=2022-06-03&data_final=2022-07-03
 
+    header:{
+        "Content-Type":"application/json",
+        "Authorization":"token f69eacd59d010b8de87e6461ca418d69446598e41eeee602419dd9183ffe9f75"
+    }
+
+    response status 200 
+
+    data:[
+        {
+            "id": 26,
+            "dia": "2022-06-14",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 27,
+            "dia": "2022-06-14",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 28,
+            "dia": "2022-06-14",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 29,
+            "dia": "2022-06-14",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 30,
+            "dia": "2022-06-16",
+            "entrada": "07:00:00",
+            "intervalo": "12:00:00",
+            "retorno": "13:00:00",
+            "saida": "17:00:00",
+            "servidor": "Andre"
+        },
+        {
+            "id": 31,
+            "dia": "2022-06-17",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 33,
+            "dia": "2022-06-19",
+            "entrada": "07:00:00",
+            "intervalo": "11:00:00",
+            "retorno": "12:00:00",
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 34,
+            "dia": "2022-06-19",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 35,
+            "dia": "2022-06-19",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 36,
+            "dia": "2022-06-19",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 37,
+            "dia": "2022-06-19",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 38,
+            "dia": "2022-06-19",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 39,
+            "dia": "2022-06-20",
+            "entrada": null,
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        },
+        {
+            "id": 40,
+            "dia": "2022-07-03",
+            "entrada": "07:00:00",
+            "intervalo": null,
+            "retorno": null,
+            "saida": null,
+            "servidor": "Andre"
+        }
+    ]
+    
 
 
     request POST baseUrl/ponto/
