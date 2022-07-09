@@ -111,8 +111,7 @@ class JustificativaSerializer(serializers.ModelSerializer):
     data_final = serializers.DateField()
     descricao = serializers.CharField()
     servidor = serializers.CharField()
-    arquivo = serializers.FileField()
-
+    arquivo = serializers.FileField(required=False)
 
     class Meta:
         model = Justificativa
