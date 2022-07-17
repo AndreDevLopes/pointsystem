@@ -14,7 +14,7 @@ class Feriado(models.Model):
     dia = models.DateField()
     tipo = models.CharField(choices=TIPOS_CHOICES, max_length=3, default=None)
     nome = models.CharField(max_length=200, default=None)
-    endereco = models.ManyToManyField(Cidade)
+    endereco = models.ManyToManyField(Cidade, blank=True)
 
     def __str__(self):
         return self.nome
