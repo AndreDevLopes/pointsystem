@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com', 'https://ponto-eletronico.vercel.app/']
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -41,7 +41,8 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:3000',  # for network
     'http://localhost:8080',  # for localhost (Developlemt)
     'http://127.0.0.1:8080',  # for network (Development)
-    'https://powerful-springs-74030.herokuapp.com'
+    'https://powerful-springs-74030.herokuapp.com',
+    'https://ponto-eletronico.vercel.app/'
 )
 
 CSRF_TRUSTED_ORIGINS = [
@@ -49,7 +50,8 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',  # for localhost (REACT Default)
     'http://127.0.0.1:3000',  # for network
     'http://localhost:8080',  # for localhost (Developlemt)
-    'http://127.0.0.1:8080'
+    'http://127.0.0.1:8080',
+    'https://ponto-eletronico.vercel.app/'
 ]
 
 CORS_ALLOW_HEADERS = [
