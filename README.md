@@ -9,6 +9,7 @@
     /servidor/horario/
     /servidor/horas/trabalhadas/
     /servidor/justificativa/
+    /feriado/
 
 ### Exemplo de uso login
 
@@ -475,3 +476,87 @@
         "status": "PEN"
      }
 
+### Exemplo de uso Feriado
+
+<b> 
+    O metodo GET deve retornar todos os feriado No metodo GET pode ser acresentado o query params ? data_inicial = data & data_final = data
+    a api vai retorna todos os feriados nesse intervalo
+</b>
+
+
+    request GET baseUrl/feriado/
+
+    header:{
+        "Content-Type":"application/json",
+        "Authorization":"token f69eacd59d010b8de87e6461ca418d69446598e41eeee602419dd9183ffe9f75"
+    }
+
+    response status 200 
+
+    data:[
+        {
+            "id": 1,
+            "dia": "2022-09-07",
+            "tipo": "NAC",
+            "nome": "Independência do Brasil",
+            "endereco": [
+                {
+                    "id": 1,
+                    "nome": "Iracema",
+                    "estado": "Ceará"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "dia": "2022-10-12",
+            "tipo": "NAC",
+            "nome": "Dia de Nossa Senhora Aparecida",
+            "endereco": [
+                {
+                    "id": 1,
+                    "nome": "Iracema",
+                    "estado": "Ceará"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "dia": "2022-11-02",
+            "tipo": "NAC",
+            "nome": "Finandos",
+            "endereco": [
+                {
+                    "id": 1,
+                    "nome": "Iracema",
+                    "estado": "Ceará"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "dia": "2022-11-15",
+            "tipo": "NAC",
+            "nome": "Proclamação da República",
+            "endereco": [
+                {
+                    "id": 1,
+                    "nome": "Iracema",
+                    "estado": "Ceará"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "dia": "2022-11-20",
+            "tipo": "NAC",
+            "nome": "Consciência Negra",
+            "endereco": [
+                {
+                    "id": 1,
+                    "nome": "Iracema",
+                    "estado": "Ceará"
+                }
+            ]
+        }
+    ]
