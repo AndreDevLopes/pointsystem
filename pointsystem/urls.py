@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/login/', LoginAPI.as_view(), name='login'),
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('api/servidor/', include('servidor.urls'), name='servidor'),
+    path('api/feriado/', include('feriado.urls'), name='feriado')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
