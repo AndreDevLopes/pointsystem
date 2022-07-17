@@ -10,4 +10,3 @@ class Ponto(models.Model):
     retorno = models.TimeField(blank=True, null=True)
     saida = models.TimeField(blank=True, null=True)
     servidor = models.ForeignKey(Servidor, on_delete=models.CASCADE, default=None)
-

@@ -80,6 +80,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'cloudinary',
+    'feriado',
+    'endereco'
 ]
 
 MIDDLEWARE = [
