@@ -480,8 +480,7 @@
 
 <b> 
     O metodo GET deve retornar todos os feriado No metodo GET pode ser acresentado o query params ? data_inicial = data & data_final = data
-    a api vai retorna todos os feriados nesse intervalo, observação feriados do tipo NAC ou EST não retorna endereços, endereços somente
-    para feriados do tipo MUN e FAC.
+    a api vai retorna todos os feriados nesse intervalo.
 </b>
 
 
@@ -496,38 +495,18 @@
 
     data:[
         {
-            "id": 1,
             "dia": "2022-09-07",
             "tipo": "NAC",
-            "nome": "Independência do Brasil",
-            "endereco": []
+            "nome": "Independência do Brasil"
         },
         {
-            "id": 2,
-            "dia": "2022-10-12",
-            "tipo": "NAC",
-            "nome": "Dia de Nossa Senhora Aparecida",
-            "endereco": []
+            "dia": "2022-08-14",
+            "tipo": "EST",
+            "nome": "NOSSA SENHORA DA ASSUNÇÃO"
         },
         {
-            "id": 3,
-            "dia": "2022-11-02",
-            "tipo": "NAC",
-            "nome": "Finandos",
-            "endereco": []
-        },
-        {
-            "id": 4,
-            "dia": "2022-11-15",
-            "tipo": "NAC",
-            "nome": "Proclamação da República",
-            "endereco": []
-        },
-        {
-            "id": 5,
-            "dia": "2022-11-20",
-            "tipo": "NAC",
-            "nome": "Consciência Negra",
-            "endereco": []
+            "dia": "2022-12-08",
+            "tipo": "MUN",
+            "nome": "Feriado Municipal"
         }
     ]
