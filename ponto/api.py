@@ -19,7 +19,7 @@ class PontoAPI(ListCreateAPIView):
         data_inicial = self.request.query_params.get('data_inicial')
         data_final = self.request.query_params.get('data_final')
         if data_inicial and data_final:
-            return Ponto.objects.filter(dia__range=(data_inicial, data_final))
+            return Ponto.objects.filter(servidor__usuario__username=user, dia__range=(data_inicial, data_final))
         UTC = pytz.timezone('america/sao_paulo')
         return Ponto.objects.filter(servidor__usuario__username=user, dia=datetime.now(UTC))
 
