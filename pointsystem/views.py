@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.contrib.auth import login
+from datetime import date
 
 from rest_framework import permissions
 from rest_framework.authtoken.serializers import AuthTokenSerializer
@@ -8,6 +9,11 @@ from knox.views import LoginView as KnoxLoginView
 
 def ping(request):
     data = {'ping': 'pong!'}
+    return JsonResponse(data)
+
+
+def DataHoje(request):
+    data = {'hoje': date.today()}
     return JsonResponse(data)
 
 

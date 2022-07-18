@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from knox import views as knox_views
 from django.contrib import admin
 from django.urls import path, include
-from .views import ping, LoginAPI
+from .views import ping, LoginAPI, DataHoje
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ping/', ping, name="ping"),
+    path('hoje/', DataHoje, name="data"),
     path('api/ponto/', include('ponto.urls'), name='ponto'),
     path('api/login/', LoginAPI.as_view(), name='login'),
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
