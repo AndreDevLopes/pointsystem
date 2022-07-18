@@ -42,7 +42,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',  # for localhost (Developlemt)
     'http://127.0.0.1:8080',  # for network (Development)
     'https://powerful-springs-74030.herokuapp.com',
-    # 'https://ponto-eletronico.vercel.app/',
+    'https://ponto-eletronico.vercel.app/',
 
 
 )
@@ -53,7 +53,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:3000',  # for network
     'http://localhost:8080',  # for localhost (Developlemt)
     'http://127.0.0.1:8080',
-    # 'https://ponto-eletronico.vercel.app/',
+    'https://ponto-eletronico.vercel.app/',
 ]
 
 CORS_ALLOW_HEADERS = [
