@@ -32,28 +32,22 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com', 'ponto-eletronico.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'powerful-springs-74030.herokuapp.com']
 
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',  # for localhost (REACT Default)
-    'http://127.0.0.1:3000',  # for network
-    'http://localhost:8080',  # for localhost (Developlemt)
-    'http://127.0.0.1:8080',  # for network (Development)
+    'http://localhost:4000',  # for localhost (REACT Default)
+    'http://127.0.0.1:4000',  # for network
     'https://powerful-springs-74030.herokuapp.com',
-    'https://ponto-eletronico.vercel.app/',
-
-
+    'https://boiling-dusk-12043.herokuapp.com/'
 )
 
 CSRF_TRUSTED_ORIGINS = [
     'https://powerful-springs-74030.herokuapp.com',
-    'http://localhost:3000',  # for localhost (REACT Default)
-    'http://127.0.0.1:3000',  # for network
-    'http://localhost:8080',  # for localhost (Developlemt)
-    'http://127.0.0.1:8080',
-    'https://ponto-eletronico.vercel.app/',
+    'http://localhost:4000',  # for localhost (REACT Default)
+    'http://127.0.0.1:4000',  # for network
+    'https://boiling-dusk-12043.herokuapp.com/'
 ]
 
 CORS_ALLOW_HEADERS = [
