@@ -40,14 +40,14 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:4000',  # for localhost (REACT Default)
     'http://127.0.0.1:4000',  # for network
     'https://powerful-springs-74030.herokuapp.com',
-    'https://boiling-dusk-12043.herokuapp.com/'
+    'https://boiling-dusk-12043.herokuapp.com'
 )
 
 CSRF_TRUSTED_ORIGINS = [
     'https://powerful-springs-74030.herokuapp.com',
     'http://localhost:4000',  # for localhost (REACT Default)
     'http://127.0.0.1:4000',  # for network
-    'https://boiling-dusk-12043.herokuapp.com/'
+    'https://boiling-dusk-12043.herokuapp.com'
 ]
 
 CORS_ALLOW_HEADERS = [

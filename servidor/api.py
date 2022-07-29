@@ -37,6 +37,13 @@ class ServidorAPI(ListAPIView):
         return Servidor.objects.filter(usuario__username=user)
 
 
+class ServidoresAPI(ListAPIView):
+    serializer_class = servidorSerializer
+
+    def get_queryset(self):
+        return Servidor.objects.all()
+
+
 class JustificativaAPI(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = JustificativaSerializer
