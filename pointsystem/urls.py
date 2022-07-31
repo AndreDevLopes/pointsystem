@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ping/', ping, name="ping"),
     path('api/hoje/', DataHoje, name="data"),
-    path('api/ponto/', include('ponto.urls'), name='ponto'),
     path('api/login/', LoginAPI.as_view(), name='login'),
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('api/servidor/', include('servidor.urls'), name='servidor'),

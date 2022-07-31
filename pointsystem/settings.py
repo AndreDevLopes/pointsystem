@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'secretaria',
     'servidor',
-    'ponto',
     'import_export',
     'rest_framework',
     'knox',
